@@ -45,8 +45,11 @@
       >Skip to main content</a
     >
 
-    <header class="c-site-header c-brand">
-      <nav class="c-navbar" aria-label="Primary Navigation">
+    <header class="c-site-header">
+      <nav
+        class="l-container l-cluster c-navbar"
+        aria-label="Primary Navigation"
+      >
         <a
           href="index.html"
           class="brand"
@@ -55,7 +58,31 @@
           WG Vehicle Solutions
         </a>
 
-        <ul role="list" class="nav-links">
+        <button
+          class="c-navbar__toggle"
+          data-ll-toggle="collapse"
+          aria-controls="primary-nav"
+          aria-expanded="false"
+          aria-label="Toggle navigation menu"
+        >
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+
+        <ul id="primary-nav" role="list" class="l-stack c-navbar__menu">
           <li><a href="index.html" aria-current="page">Home</a></li>
           <li><a href="services.html">Services</a></li>
           <li><a href="contact.html">Contact</a></li>
@@ -65,8 +92,11 @@
 
     <main id="main-content">
       <!-- HERO SECTION -->
-      <section class="hero-section" aria-labelledby="hero-heading">
-        <div class="hero-content">
+      <section
+        class="hero-section l-container l-split"
+        aria-labelledby="hero-heading"
+      >
+        <div class="l-stack">
           <h1 id="hero-heading">Expert Mobile Diagnostics & Rescue</h1>
           <p>
             Fast, reliable automotive engineering for stranded motorists and
@@ -74,7 +104,7 @@
             workshop repair in Evesham, Will gets you moving again.
           </p>
 
-          <div class="hero-actions">
+          <div class="l-cluster">
             <a href="tel:+447123456789" class="cta-button primary">
               Call for Immediate Rescue
             </a>
@@ -104,11 +134,14 @@
       </section>
 
       <!-- SNAPSHOT MATRIX: 3 Routing Cards -->
-      <section class="snapshot-matrix" aria-labelledby="matrix-heading">
+      <section
+        class="snapshot-matrix l-container l-stack"
+        aria-labelledby="matrix-heading"
+      >
         <h2 id="matrix-heading" class="sr-only">Our Services</h2>
 
-        <ul role="list" class="routing-grid">
-          <li class="routing-card">
+        <ul role="list" class="l-grid routing-grid">
+          <li class="routing-card l-stack">
             <h3>Immediate Rescue</h3>
             <p>
               Stranded? We prioritize roadside diagnostics and emergency repairs
@@ -119,7 +152,7 @@
             >
           </li>
 
-          <li class="routing-card">
+          <li class="routing-card l-stack">
             <h3>Workshop Repairs</h3>
             <p>
               Complex mechanical faults and precision engineering handled at our
@@ -130,7 +163,7 @@
             >
           </li>
 
-          <li class="routing-card">
+          <li class="routing-card l-stack">
             <h3>Book a Slot</h3>
             <p>
               Skip the phone queue. Send your fault details directly to Will's
@@ -144,8 +177,14 @@
       </section>
 
       <!-- CUSTOMER REVIEWS -->
-      <section class="customer-reviews" aria-labelledby="reviews-heading">
-        <header class="section-header">
+      <section
+        class="customer-reviews l-container l-stack"
+        aria-labelledby="reviews-heading"
+      >
+        <header
+          class="section-header l-stack"
+          style="--stack-gap: var(--space-2xs)"
+        >
           <h2 id="reviews-heading">Trusted by Local Motorists</h2>
           <p>Real rescue and repair stories from our community.</p>
         </header>
@@ -247,8 +286,8 @@
     </main>
 
     <footer class="global-footer">
-      <div class="footer-layout-wrapper">
-        <div class="footer-brand-info">
+      <div class="l-container l-grid">
+        <div class="footer-brand-info l-stack">
           <a
             href="index.html"
             class="footer-logo"
@@ -315,7 +354,7 @@
           </ul>
         </div>
 
-        <div class="footer-hours">
+        <div class="footer-hours l-stack">
           <h2 class="sr-only">Opening Hours</h2>
           <div id="live-status-container" aria-live="polite"></div>
           <table class="hours-table">
