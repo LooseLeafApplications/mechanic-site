@@ -44,8 +44,11 @@
       >Skip to main content</a
     >
 
-    <header class="c-site-header c-brand">
-      <nav class="c-navbar" aria-label="Primary Navigation">
+    <header class="c-site-header">
+      <nav
+        class="l-container l-cluster c-navbar"
+        aria-label="Primary Navigation"
+      >
         <a
           href="index.html"
           class="brand"
@@ -54,7 +57,31 @@
           WG Vehicle Solutions
         </a>
 
-        <ul role="list" class="nav-links">
+        <button
+          class="c-navbar__toggle"
+          data-ll-toggle="collapse"
+          aria-controls="primary-nav"
+          aria-expanded="false"
+          aria-label="Toggle navigation menu"
+        >
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+
+        <ul id="primary-nav" role="list" class="l-stack c-navbar__menu">
           <li><a href="index.html">Home</a></li>
           <li><a href="services.html">Services</a></li>
           <li><a href="contact.html" aria-current="page">Contact</a></li>
@@ -63,8 +90,14 @@
     </header>
 
     <main id="main-content">
-      <section class="contact-section" aria-labelledby="contact-heading">
-        <header class="section-header">
+      <section
+        class="contact-section l-container l-stack"
+        aria-labelledby="contact-heading"
+      >
+        <header
+          class="section-header l-stack"
+          style="--stack-gap: var(--space-2xs)"
+        >
           <h1 id="contact-heading">Contact & Bookings</h1>
           <p>
             Call directly for immediate roadside assistance, or send your
@@ -72,11 +105,14 @@
           </p>
         </header>
 
-        <div class="contact-wrapper">
-          <div class="contact-info">
+        <div class="l-split contact-wrapper">
+          <div class="contact-info l-stack">
             <h2>Get in Touch</h2>
 
-            <div class="contact-methods">
+            <div
+              class="contact-methods l-stack"
+              style="--stack-gap: var(--space-s)"
+            >
               <p>
                 <strong>Emergency Rescue:</strong><br />
                 <a href="tel:+447123456789" class="text-link">07123 456 789</a>
@@ -89,32 +125,23 @@
               </address>
             </div>
 
-            <div class="map-container">
-              <picture>
-                <source
-                  type="image/webp"
-                  srcset="assets/images/optimized/evesham-service-area.webp"
-                />
-                <img
-                  src="assets/images/raw/evesham-service-area-fallback.jpg"
-                  alt="Static map showing Will's primary service boundary around Evesham and Unit 4 workshop location."
-                  width="600"
-                  height="300"
-                  loading="lazy"
-                  class="static-map-image"
-                />
-              </picture>
-            </div>
+            <div class="map-container"></div>
           </div>
 
-          <div class="booking-form-container">
-            <h2>Request a Quote</h2>
-            <p>
-              Fill out your details and this form will open a direct WhatsApp
-              chat with Will.
-            </p>
+          <div class="booking-form-container l-stack">
+            <div class="l-stack" style="--stack-gap: var(--space-2xs)">
+              <h2>Request a Quote</h2>
+              <p>
+                Fill out your details and this form will open a direct WhatsApp
+                chat with Will.
+              </p>
+            </div>
 
-            <form id="whatsapp-booking-form" class="booking-form">
+            <form
+              id="whatsapp-booking-form"
+              class="booking-form l-stack"
+              style="--stack-gap: var(--space-m)"
+            >
               <div class="form-group">
                 <label for="customer-name">Full Name</label>
                 <input
@@ -123,28 +150,6 @@
                   name="customer-name"
                   required
                 />
-              </div>
-
-              <div class="form-group">
-                <label for="vehicle-reg">Vehicle Registration</label>
-                <input
-                  type="text"
-                  id="vehicle-reg"
-                  name="vehicle-reg"
-                  required
-                />
-              </div>
-
-              <div class="form-group">
-                <label for="fault-desc"
-                  >Describe the Fault / Service Required</label
-                >
-                <textarea
-                  id="fault-desc"
-                  name="fault-desc"
-                  rows="5"
-                  required
-                ></textarea>
               </div>
 
               <button type="submit" class="cta-button primary">
@@ -157,8 +162,8 @@
     </main>
 
     <footer class="global-footer">
-      <div class="footer-layout-wrapper">
-        <div class="footer-brand-info">
+      <div class="l-container l-grid">
+        <div class="footer-brand-info l-stack">
           <a
             href="index.html"
             class="footer-logo"
@@ -225,7 +230,7 @@
           </ul>
         </div>
 
-        <div class="footer-hours">
+        <div class="footer-hours l-stack">
           <h2 class="sr-only">Opening Hours</h2>
           <div id="live-status-container" aria-live="polite"></div>
           <table class="hours-table">

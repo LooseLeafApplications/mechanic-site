@@ -13,13 +13,9 @@
   z-index: 100;
 }
 
+/* Modifying the underlying l-cluster primitive */
 .c-navbar {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  max-inline-size: 1200px;
-  margin-inline: auto;
+  --cluster-justify: space-between;
 }
 
 .brand {
@@ -30,23 +26,69 @@
   text-decoration: none;
 }
 
-.nav-links {
-  display: flex;
-  gap: var(--space-m);
+/* --- Mobile Toggle Button --- */
+.c-navbar__toggle {
+  display: block;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-text-base);
+  padding: var(--space-3xs);
+}
+
+.c-navbar__toggle:hover {
+  color: var(--color-action-primary);
+}
+
+/* --- Navigation Menu --- */
+.c-navbar__menu {
+  display: none; /* Hidden by default on mobile */
+  width: 100%;
   list-style: none;
   padding: 0;
   margin: 0;
+  /* Overriding l-stack default gap */
+  --stack-gap: var(--space-s);
 }
 
-.nav-links a {
+/* State hook for core.js */
+.c-navbar__menu.is-open {
+  display: flex; /* Restores the l-stack flex behavior */
+}
+
+/* Desktop View Override */
+@media (min-width: 768px) {
+  .c-navbar__toggle {
+    display: none;
+  }
+
+  .c-navbar__menu {
+    display: flex;
+    width: auto;
+    flex-direction: row; /* Transforms the stack into a row */
+    gap: var(--space-m);
+  }
+}
+
+.c-navbar__menu a {
   text-decoration: none;
   color: var(--color-text-base);
   font-weight: 500;
+  display: block; /* Larger tap target */
 }
 
-.nav-links a[aria-current="page"] {
+.c-navbar__menu a[aria-current="page"] {
   color: var(--color-action-primary);
   border-bottom: 2px solid var(--color-action-primary);
+  display: inline-block;
+}
+
+.brand {
+  font-family: var(--font-family-heading);
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--color-text-base);
+  text-decoration: none;
 }
 
 /* Cards (Services & Snapshots) */
