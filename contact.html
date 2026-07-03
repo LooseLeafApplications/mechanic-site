@@ -29,12 +29,14 @@
     />
     <link rel="manifest" href="site.webmanifest" />
 
-    <link rel="stylesheet" href="assets/css/style.css" />
-    <!-- defer script tag in the head to load JavaScript in the background without stopping initial html paint -->
+    <link rel="stylesheet" href="assets/css/00-harmonics.css" />
+    <link rel="stylesheet" href="assets/css/01-primitives.css" />
+    <link rel="stylesheet" href="assets/css/02-atoms.css" />
+    <link rel="stylesheet" href="assets/css/03-organisms.css" />
+
     <script src="assets/js/main.js" defer></script>
   </head>
   <body>
-    <!-- Accessibility: Allows keyboard/screen reader users to bypass navigation -->
     <a
       href="#main-content"
       class="skip-link"
@@ -42,8 +44,8 @@
       >Skip to main content</a
     >
 
-    <header>
-      <nav aria-label="Primary Navigation">
+    <header class="c-site-header c-brand">
+      <nav class="c-navbar" aria-label="Primary Navigation">
         <a
           href="index.html"
           class="brand"
@@ -55,7 +57,6 @@
         <ul role="list" class="nav-links">
           <li><a href="index.html">Home</a></li>
           <li><a href="services.html">Services</a></li>
-          <!-- aria-current applied to Contact to indicate active page -->
           <li><a href="contact.html" aria-current="page">Contact</a></li>
         </ul>
       </nav>
@@ -64,7 +65,6 @@
     <main id="main-content">
       <section class="contact-section" aria-labelledby="contact-heading">
         <header class="section-header">
-          <!-- The single, context-setting H1 for this page -->
           <h1 id="contact-heading">Contact & Bookings</h1>
           <p>
             Call directly for immediate roadside assistance, or send your
@@ -72,18 +72,13 @@
           </p>
         </header>
 
-        <!-- The wrapper for our Phase 2 'Sidebar' layout primitive -->
         <div class="contact-wrapper">
-          <!-- ==========================================
-               LEFT PANE: Real-World Context
-               ========================================== -->
           <div class="contact-info">
             <h2>Get in Touch</h2>
 
             <div class="contact-methods">
               <p>
                 <strong>Emergency Rescue:</strong><br />
-                <!-- Semantic tel link for instant mobile calling -->
                 <a href="tel:+447123456789" class="text-link">07123 456 789</a>
               </p>
 
@@ -95,11 +90,6 @@
             </div>
 
             <div class="map-container">
-              <!-- 
-                Replacing the heavy iframe with a lightweight static image.
-                This eliminates third-party network requests entirely and lets 
-                you show a "Service Area Boundary" instead of just a pin.
-              -->
               <picture>
                 <source
                   type="image/webp"
@@ -117,9 +107,6 @@
             </div>
           </div>
 
-          <!-- ==========================================
-               RIGHT PANE: Digital Booking Workspace
-               ========================================== -->
           <div class="booking-form-container">
             <h2>Request a Quote</h2>
             <p>
@@ -127,12 +114,7 @@
               chat with Will.
             </p>
 
-            <!-- We will attach a JavaScript event listener to this ID in Phase 4 -->
             <form id="whatsapp-booking-form" class="booking-form">
-              <!-- 
-                DRY & Accessible Form Group Pattern:
-                Notice how the 'for' attribute exactly matches the 'id' attribute.
-              -->
               <div class="form-group">
                 <label for="customer-name">Full Name</label>
                 <input
@@ -157,7 +139,6 @@
                 <label for="fault-desc"
                   >Describe the Fault / Service Required</label
                 >
-                <!-- Textarea used for multi-line input -->
                 <textarea
                   id="fault-desc"
                   name="fault-desc"
@@ -246,7 +227,6 @@
 
         <div class="footer-hours">
           <h2 class="sr-only">Opening Hours</h2>
-
           <table class="hours-table">
             <tbody>
               <tr data-day="1">

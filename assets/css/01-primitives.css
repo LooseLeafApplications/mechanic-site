@@ -1,0 +1,46 @@
+/* ==========================================================================
+   01-PRIMITIVES: LAYOUT CONTAINERS
+   ========================================================================== */
+
+/* Main Document Wrapper */
+main {
+  padding-block: var(--space-2xl);
+  padding-inline: var(--space-m);
+  max-inline-size: 1200px;
+  margin-inline: auto;
+}
+
+/* Auto-fit Grid primitive for Services and Snapshots */
+.routing-grid,
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-l);
+  padding: 0;
+  list-style: none;
+}
+
+/* Two-pane layout for Contact page & Hero */
+.contact-wrapper,
+.hero-section {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-xl);
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .contact-wrapper,
+  .hero-section {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Footer layout primitive */
+.footer-layout-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--space-l);
+  max-inline-size: 1200px;
+  margin-inline: auto;
+}

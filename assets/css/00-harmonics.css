@@ -1,0 +1,85 @@
+/* ==========================================================================
+   LOOSELEAF UI: REBOOT & SYSTEM TOKENS
+   ========================================================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Merriweather:wght@700&display=swap");
+
+:root {
+  /* Typography Pairing */
+  --font-family-ui: "Inter", system-ui, sans-serif;
+  --font-family-heading: "Merriweather", "Georgia", serif;
+
+  /* Semantic Colour Tokens */
+  --color-malachite-vibrant: #10b981;
+  --color-malachite-deep: #065f46;
+  --color-amber-bright: #fbbf24;
+  --color-grape-vintage: #5b21b6;
+  --color-surface-base: #ffffff;
+  --color-surface-sunken: #f4f4f5;
+  --color-text-base: #18181b;
+  --color-border-subtle: #e4e4e7;
+
+  /* Mapped Roles */
+  --color-action-primary: var(--color-malachite-deep);
+  --color-action-hover: var(--color-malachite-vibrant);
+  --color-surface-alt: var(--color-grape-vintage);
+
+  /* Spacing Scale (Harmonic) */
+  --space-3xs: 0.25rem;
+  --space-2xs: 0.5rem;
+  --space-xs: 0.75rem;
+  --space-s: 1rem;
+  --space-m: 1.5rem;
+  --space-l: 2rem;
+  --space-xl: 3rem;
+  --space-2xl: 4rem;
+}
+
+/* Base Reboot */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin-block: 0;
+}
+
+html,
+body {
+  min-inline-size: 100%;
+  font-family: var(--font-family-ui);
+  line-height: 1.6;
+  color: var(--color-text-base);
+  background-color: var(--color-surface-base);
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-family-heading);
+  line-height: 1.2;
+  margin-block-end: var(--space-s);
+  color: var(--color-text-base);
+}
+
+img,
+picture,
+svg {
+  display: block;
+  max-inline-size: 100%;
+}
+
+p,
+li {
+  max-inline-size: 65ch;
+  margin-block-end: var(--space-m);
+}
+
+a {
+  color: var(--color-action-primary);
+  text-decoration-thickness: 0.1em;
+  text-underline-offset: 0.2em;
+}
