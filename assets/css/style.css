@@ -1,0 +1,109 @@
+/* ==========================================================================
+   LOOSELEAF UI: REBOOT & SYSTEM TOKENS
+   ========================================================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Merriweather:wght@700&display=swap");
+
+/* --- [T1-01] Global Box Model & Margin Reset --- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin-block: 0;
+}
+
+/* --- [T1-02] Document Level Constraints --- */
+html,
+body {
+  min-inline-size: 100%;
+  font-family: var(--font-family-ui);
+  line-height: 1.5;
+  color: var(--color-text-base);
+  overflow-wrap: break-word;
+}
+
+/* Prevent media elements from blowing out flex/grid containers */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-inline-size: 100%;
+  height: auto;
+}
+
+/* --- [T1-03] Typographic Measure with Inverted Control --- */
+p,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-family-heading);
+  max-inline-size: var(--element-measure, 60ch);
+}
+
+/* --- [T1-04] System Tokens & Scales --- */
+:root {
+  /* The Harmonic Ratio (Perfect Fifth) */
+  --scale-ratio: 1.5;
+
+  /* Fluid Baseline Tonic (--s0) */
+  --s0: clamp(1rem, 0.8rem + 1vw, 1.25rem);
+
+  /* The Expanding Modular Scale */
+  --s1: calc(var(--s0) * var(--scale-ratio));
+  --s2: calc(var(--s1) * var(--scale-ratio));
+  --s3: calc(var(--s2) * var(--scale-ratio));
+  --s4: calc(var(--s3) * var(--scale-ratio));
+
+  /* The Contracting Modular Scale */
+  --s-1: calc(var(--s0) / var(--scale-ratio));
+  --s-2: calc(var(--s-1) / var(--scale-ratio));
+
+  /* Universal Layout Constraints */
+  --measure: 60ch;
+
+  /* Typography Pairing */
+  --font-family-ui: "Inter", system-ui, sans-serif;
+  --font-family-heading: "Merriweather", "Georgia", serif;
+
+  /* Font Weight Defaults */
+  --font-weight-body: 400;
+  --font-weight-heading: 700;
+
+  /* Core Brand: Malachite */
+  --color-malachite-vibrant: #10b981;
+  --color-malachite-deep: #065f46;
+
+  /* Accents: Amber & Grape */
+  --color-amber-bright: #fbbf24; /* High-visibility alerts / Callouts */
+  --color-grape-vintage: #563c5c; /* Structural depth / Secondary accents */
+
+  /* Surface & Text */
+  --color-surface-base: #ffffff;
+  --color-surface-sunken: #f4f4f5;
+  --color-text-base: #14080e;
+  --color-border-subtle: #e4e4e7;
+
+  /* Mapped Actions */
+  --color-action-primary: var(--color-malachite-deep);
+  --color-action-attention: var(--color-amber-bright);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-surface-base: #18181b;
+    --color-surface-sunken: #27272a;
+    --color-text-base: #fafafa;
+    --color-border-subtle: #3f3f46;
+
+    --color-action-primary: var(--color-malachite-vibrant);
+    --color-action-attention: var(
+      --color-amber-bright
+    ); /* Remains high-contrast on dark */
+  }
+}
