@@ -181,3 +181,41 @@
     transform: translateX(calc(-50% - (var(--space-l) / 2)));
   }
 }
+
+/* --- Live Operational Status for Opening Times --- */
+.operational-status {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2xs);
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-block-end: var(--space-s);
+}
+
+.status-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: var(--color-border-subtle); /* Default offline/closed */
+}
+
+/* Status Modifiers */
+.is-open .status-dot {
+  background-color: var(--color-malachite-vibrant);
+  box-shadow: 0 0 8px var(--color-malachite-vibrant);
+}
+
+.is-closing .status-dot {
+  background-color: var(--color-amber-bright);
+}
+
+.is-closed .status-dot {
+  background-color: #ef4444; /* A clear, accessible red for closed */
+}
+
+/* Current Day Highlight in Table */
+.hours-table tr.is-today th,
+.hours-table tr.is-today td {
+  color: var(--color-malachite-vibrant);
+  font-weight: 700;
+}

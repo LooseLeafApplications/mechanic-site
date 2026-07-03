@@ -139,3 +139,59 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+// ==========================================================================
+// [T5-05] LIVE OPENING HOURS STATUS
+// ==========================================================================
+document.addEventListener("DOMContentLoaded", () => {
+  // 1. Get the current date and time
+  const now = new Date();
+  const currentDay = now.getDay(); // Returns 0 (Sun) to 6 (Sat)
+  const currentHour = now.getHours(); // Returns 0 to 23
+
+  // 2. Highlight Today's Row in the Table
+  // We use the data-day attribute in HTML
+  const todayRow = document.querySelector(`tr[data-day="${currentDay}"]`);
+  if (todayRow) {
+    todayRow.classList.add("is-today");
+  }
+
+  // 3. Operational Status Logic
+  const statusContainer = document.getElementById("live-status-container");
+  if (!statusContainer) return; // Fail gracefully if the element isn't on the page
+
+  let statusText = "Closed";
+  let statusClass = "is-closed";
+
+  // Determine if it's a Weekday (Mon=1, Fri=5)
+  if (currentDay >= 1 && currentDay <= 5) {
+    if (currentHour >= 8 && currentHour < 16) {
+      statusText = "Open Now";
+      statusClass = "is-open";
+    } else if (currentHour === 16) {
+      // 16:00 to 16:59
+      statusText = "Closing Soon";
+      statusClass = "is-closing";
+    }
+  }
+  // Determine if it's Saturday (Sat=6)
+  else if (currentDay === 6) {
+    if (currentHour >= 9 && currentHour < 12) {
+      statusText = "Open Now";
+      statusClass = "is-open";
+    } else if (currentHour === 12) {
+      // 12:00 to 12:59
+      statusText = "Closing Soon";
+      statusClass = "is-closing";
+    }
+  }
+  // Sunday (0) defaults to "Closed" from the variables above
+
+  // 4. Inject the Status into the DOM
+  statusContainer.innerHTML = `
+    <div class="operational-status ${statusClass}">
+      <span class="status-dot" aria-hidden="true"></span>
+      <span>${statusText}</span>
+    </div>
+  `;
+});
