@@ -1,0 +1,183 @@
+/* ==========================================================================
+   03-ORGANISMS: NAVBAR, CARDS & FOOTER
+   ========================================================================== */
+
+/* Navigation */
+.c-site-header {
+  background-color: var(--color-surface-base);
+  border-bottom: 1px solid var(--color-border-subtle);
+  padding-block: var(--space-s);
+  padding-inline: var(--space-m);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.c-navbar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  max-inline-size: 1200px;
+  margin-inline: auto;
+}
+
+.brand {
+  font-family: var(--font-family-heading);
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--color-text-base);
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: var(--space-m);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--color-text-base);
+  font-weight: 500;
+}
+
+.nav-links a[aria-current="page"] {
+  color: var(--color-action-primary);
+  border-bottom: 2px solid var(--color-action-primary);
+}
+
+/* Cards (Services & Snapshots) */
+.routing-card,
+.service-card {
+  background-color: var(--color-surface-sunken);
+  padding: var(--space-l);
+  border-radius: 8px;
+  border: 1px solid var(--color-border-subtle);
+  display: flex;
+  flex-direction: column;
+}
+
+.card-icon {
+  color: var(--color-action-primary);
+  margin-block-end: var(--space-s);
+}
+
+.card-link {
+  margin-top: auto; /* Pushes link to bottom of card */
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2xs);
+}
+
+/* Global Footer */
+.global-footer {
+  background-color: var(--color-surface-alt);
+  color: var(--color-surface-sunken);
+  padding-block: var(--space-xl);
+  padding-inline: var(--space-m);
+  margin-top: var(--space-2xl);
+}
+
+.global-footer h2,
+.global-footer a {
+  color: var(--color-surface-base);
+}
+
+.hours-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.hours-table th,
+.hours-table td {
+  padding-block: var(--space-2xs);
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-copyright {
+  max-inline-size: 1200px;
+  margin-inline: auto;
+  margin-top: var(--space-l);
+  padding-top: var(--space-s);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.875rem;
+  text-align: center;
+}
+
+/* --- Review Marquee Organism --- */
+
+.review-marquee-wrapper {
+  overflow: hidden;
+  width: 100%;
+  padding-block: var(--space-l);
+  /* Pro-tip: A CSS mask creates a subtle fade at the edges of the screen */
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
+}
+
+.review-track {
+  display: flex;
+  gap: var(--space-l);
+  width: max-content;
+  /* Adjust the 30s to make it scroll faster or slower */
+  animation: scroll-marquee 30s linear infinite;
+}
+
+/* Accessibility: Stop moving when the user is trying to read */
+.review-marquee-wrapper:hover .review-track,
+.review-marquee-wrapper:focus-within .review-track {
+  animation-play-state: paused;
+}
+
+.review-card {
+  width: 350px; /* Fixed width prevents shrinking in the flex container */
+  flex-shrink: 0;
+  background-color: var(--color-surface-sunken);
+  padding: var(--space-l);
+  border-radius: 8px;
+  border: 1px solid var(--color-border-subtle);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.review-card blockquote {
+  font-style: italic;
+  margin-block-end: var(--space-m);
+}
+
+.review-meta {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--color-action-primary);
+  font-weight: 600;
+  margin-top: var(--space-3xs);
+}
+
+/* The Infinite Loop Engine */
+@keyframes scroll-marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    /* Shifts exactly half the total width + half the gap to seamlessly loop */
+    transform: translateX(calc(-50% - (var(--space-l) / 2)));
+  }
+}

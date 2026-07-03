@@ -29,7 +29,11 @@
     />
     <link rel="manifest" href="site.webmanifest" />
 
-    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/00-harmonics.css" />
+    <link rel="stylesheet" href="assets/css/01-primitives.css" />
+    <link rel="stylesheet" href="assets/css/02-atoms.css" />
+    <link rel="stylesheet" href="assets/css/03-organisms.css" />
+
     <script src="assets/js/main.js" defer></script>
   </head>
   <body>
@@ -40,8 +44,8 @@
       >Skip to main content</a
     >
 
-    <header>
-      <nav aria-label="Primary Navigation">
+    <header class="c-site-header c-brand">
+      <nav class="c-navbar" aria-label="Primary Navigation">
         <a
           href="index.html"
           class="brand"
@@ -52,7 +56,6 @@
 
         <ul role="list" class="nav-links">
           <li><a href="index.html">Home</a></li>
-          <!-- aria-current moved here to programmatically highlight the active page -->
           <li><a href="services.html" aria-current="page">Services</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
@@ -60,7 +63,6 @@
     </header>
 
     <main id="main-content">
-      <!-- LAYOUT BLOCK 1: Category Intro -->
       <section class="category-intro" aria-labelledby="services-heading">
         <div class="intro-content">
           <h1 id="services-heading">Precision Engineering & Mobile Rescue</h1>
@@ -72,15 +74,11 @@
         </div>
       </section>
 
-      <!-- LAYOUT BLOCK 2: Iconographic Service Grid -->
       <section class="service-matrix" aria-labelledby="matrix-heading">
-        <!-- Hidden heading to maintain strict document outline for screen readers -->
         <h2 id="matrix-heading" class="sr-only">Our Core Capabilities</h2>
 
         <ul role="list" class="service-grid">
-          <!-- Service Card 1 -->
           <li class="service-card">
-            <!-- Inline SVG: Zero HTTP requests, infinite scalability -->
             <div class="card-icon" aria-hidden="true">
               <svg
                 width="48"
@@ -104,7 +102,6 @@
             </p>
           </li>
 
-          <!-- Service Card 2 -->
           <li class="service-card">
             <div class="card-icon" aria-hidden="true">
               <svg
@@ -131,7 +128,6 @@
             </p>
           </li>
 
-          <!-- Service Card 3 -->
           <li class="service-card">
             <div class="card-icon" aria-hidden="true">
               <svg
@@ -156,7 +152,6 @@
             </p>
           </li>
 
-          <!-- Service Card 4 -->
           <li class="service-card">
             <div class="card-icon" aria-hidden="true">
               <svg
@@ -256,7 +251,6 @@
 
         <div class="footer-hours">
           <h2 class="sr-only">Opening Hours</h2>
-
           <table class="hours-table">
             <tbody>
               <tr data-day="1">
