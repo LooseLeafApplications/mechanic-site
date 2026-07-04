@@ -1,0 +1,95 @@
+/* --- [T5-02] The Lift & Scale --- */
+.u-anim-lift {
+  transition:
+    transform var(--dur-base) var(--spring-snappy),
+    box-shadow var(--dur-base) var(--spring-snappy);
+  will-change: transform;
+}
+.u-anim-lift:hover {
+  transform: translateY(calc(var(--s-2) * -1)) scale(1.02);
+}
+
+/* --- [T5-03] Global Reduced Motion --- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* --- Marquee Feature --- */
+
+.review-marquee-wrapper {
+  overflow: hidden;
+  width: 100%;
+  padding-block: var(--s2);
+  /* A CSS mask creates a subtle fade at the edges of the screen */
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
+}
+
+.review-track {
+  display: flex;
+  gap: var(--s2);
+  width: max-content;
+  /* Adjust the 30s to make it scroll faster or slower */
+  animation: scroll-marquee 30s linear infinite;
+}
+
+/* Accessibility: Stop moving when the user is trying to read */
+.review-marquee-wrapper:hover .review-track,
+.review-marquee-wrapper:focus-within .review-track {
+  animation-play-state: paused;
+}
+
+.review-card {
+  width: 350px; /* Fixed width prevents shrinking in the flex container */
+  flex-shrink: 0;
+  background-color: var(--color-surface-sunken);
+  padding: var(--s2);
+  border-radius: 8px;
+  border: 1px solid var(--color-border-subtle);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.review-card blockquote {
+  font-style: italic;
+  margin-block-end: var(--s1);
+}
+
+.review-meta {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--color-action-primary);
+  font-weight: 600;
+  margin-top: var(--s-2);
+}
+
+/* The Infinite Loop Engine */
+@keyframes scroll-marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    /* Shifts exactly half the total width + half the gap to seamlessly loop */
+    transform: translateX(calc(-50% - (var(--s2) / 2)));
+  }
+}

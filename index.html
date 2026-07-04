@@ -43,22 +43,19 @@
   <!-- Visible Content Begins -->
 
   <body>
-    <header class="c-site-header">
+    <header class="c-site-header" role="region" aria-labelledby="page-heading">
       <l-container>
         <nav class="c-navbar" aria-label="Primary Navigation">
           <l-cluster class="u-flex-between">
-            <a
-              href="index.html"
-              class="c-navbar__brand"
-              aria-label="WG Vehicle Solutions Home"
+            <a href="index.html" class="c-navbar__brand"
+              >WG Vehicle Solutions</a
             >
-              WG Vehicle Solutions
-            </a>
+
             <button
-              class="c-navbar__toggle u-anim-lift"
+              class="c-navbar__toggle"
               data-ll-toggle="collapse"
               aria-expanded="false"
-              aria-controls="primary-menu"
+              aria-controls="primary-nav"
               aria-label="Toggle navigation"
             >
               <svg
@@ -77,6 +74,7 @@
                 <line x1="3" y1="18" x2="21" y2="18"></line>
               </svg>
             </button>
+
             <div class="c-navbar__menu" id="primary-nav">
               <l-cluster>
                 <a href="index.html" class="c-navbar__link" aria-current="page"
@@ -89,55 +87,41 @@
           </l-cluster>
         </nav>
       </l-container>
+
+      <l-container>
+        <div class="hero-content-wrapper">
+          <l-stack style="--stack-gap: var(--s0)">
+            <h1 id="page-heading" class="hero-heading">
+              Auto Maintenance, <br />Service, and Repair
+            </h1>
+
+            <p class="hero-lead">
+              Fast, reliable automotive engineering for stranded motorists and
+              vehicle owners. Whether you need a roadside rescue or a precision
+              workshop repair in Evesham, Will gets you moving again.
+            </p>
+
+            <l-cluster
+              style="--cluster-gap: var(--s1); --cluster-justify: center"
+            >
+              <a href="tel:+447123456789" class="cta-button primary">
+                Call for Immediate Rescue
+              </a>
+              <a
+                href="contact.html"
+                class="cta-button secondary u-border-light u-text-light"
+              >
+                Book a Workshop Slot
+              </a>
+            </l-cluster>
+          </l-stack>
+        </div>
+      </l-container>
     </header>
 
     <main id="main-content">
       <l-container>
         <l-stack style="--stack-gap: var(--s3)">
-          <!-- HERO SECTION -->
-          <l-split
-            class="hero-section"
-            aria-labelledby="hero-heading"
-            role="region"
-          >
-            <l-stack style="--stack-gap: var(--s2)">
-              <h1 id="hero-heading">Expert Mobile Diagnostics & Rescue</h1>
-              <p>
-                Fast, reliable automotive engineering for stranded motorists and
-                vehicle owners. Whether you need a roadside rescue or a
-                precision workshop repair in Evesham, Will gets you moving
-                again.
-              </p>
-
-              <l-cluster style="--cluster-gap: var(--s1)">
-                <a href="tel:+447123456789" class="cta-button primary">
-                  Call for Immediate Rescue
-                </a>
-                <a href="contact.html" class="cta-button secondary">
-                  Book a Workshop Slot
-                </a>
-              </l-cluster>
-            </l-stack>
-
-            <div class="hero-image-wrapper">
-              <picture>
-                <source
-                  type="image/webp"
-                  srcset="assets/images/optimized/hero-mechanic.webp"
-                />
-                <img
-                  src="assets/images/raw/hero-mechanic-fallback.jpg"
-                  alt="Will diagnosing an engine fault on a stranded vehicle at the roadside"
-                  width="800"
-                  height="600"
-                  fetchpriority="high"
-                  loading="eager"
-                  class="hero-image"
-                />
-              </picture>
-            </div>
-          </l-split>
-
           <!-- SNAPSHOT MATRIX: 3 Routing Cards -->
           <l-stack
             class="snapshot-matrix"
@@ -147,7 +131,7 @@
             <h2 id="matrix-heading" class="sr-only">Our Services</h2>
 
             <l-grid role="list" class="routing-grid">
-              <l-stack class="routing-card">
+              <l-stack class="routing-card u-anim-lift">
                 <h3>Immediate Rescue</h3>
                 <p>
                   Stranded? We prioritize roadside diagnostics and emergency
@@ -158,7 +142,7 @@
                 >
               </l-stack>
 
-              <l-stack class="routing-card">
+              <l-stack class="routing-card u-anim-lift">
                 <h3>Workshop Repairs</h3>
                 <p>
                   Complex mechanical faults and precision engineering handled at
@@ -169,7 +153,7 @@
                 >
               </l-stack>
 
-              <l-stack class="routing-card">
+              <l-stack class="routing-card u-anim-lift">
                 <h3>Book a Slot</h3>
                 <p>
                   Skip the phone queue. Send your fault details directly to
@@ -307,7 +291,8 @@
               Workshop Unit 4<br />
               Evesham, WR11 4AB
             </address>
-            <ul class="social-links l-cluster" aria-label="Social Media">
+
+            <ul class="social-links" aria-label="Social Media">
               <li>
                 <a
                   href="#"
