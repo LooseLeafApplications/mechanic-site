@@ -264,3 +264,65 @@
   color: var(--color-malachite-vibrant);
   font-weight: 700;
 }
+
+/* --- FAQ Accordion Organism --- */
+.c-faq-accordion {
+  /* Local Component Tokens */
+  --faq-bg: var(--color-surface-sunken);
+  --faq-border: var(--color-border-subtle);
+  --faq-radius: 8px;
+}
+
+.c-faq-item {
+  background-color: var(--faq-bg);
+  border: 1px solid var(--faq-border);
+  border-radius: var(--faq-radius);
+  overflow: hidden; /* Traps the content so the borders stay neat */
+  transition: background-color 0.2s ease;
+}
+
+.c-faq-summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--s1) var(--s2);
+  cursor: pointer;
+  font-weight: 700;
+  color: var(--color-text-base);
+
+  /* Nuke the default browser triangle */
+  list-style: none;
+}
+
+/* WebKit-specific kill switch for the default triangle */
+.c-faq-summary::-webkit-details-marker {
+  display: none;
+}
+
+.c-faq-summary:hover,
+.c-faq-summary:focus-visible {
+  background-color: rgba(0, 0, 0, 0.03); /* Subtle intrinsic hover state */
+}
+
+/* The custom icon */
+.faq-icon {
+  color: var(--color-action-primary);
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+/* The Intrinsic Hook: Rotate the chevron when the browser opens the tag */
+.c-faq-item[open] .faq-icon {
+  transform: rotate(180deg);
+}
+
+/* The expanding content */
+.c-faq-content {
+  padding: 0 var(--s2) var(--s1) var(--s2);
+  color: var(--color-text-muted);
+}
+
+/* Tighten the space between the question and the answer when open */
+.c-faq-item[open] .c-faq-summary {
+  padding-block-end: var(--s0);
+}
