@@ -97,3 +97,9 @@ a:hover,
 a:focus {
   color: var(--color-action-hover);
 }
+
+/* --- Global Layout Boundaries --- */
+main {
+  /* Provides top and bottom breathing room for the page content */
+  padding-block: var(--s3);
+}
