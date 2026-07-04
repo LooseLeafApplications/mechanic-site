@@ -2,23 +2,17 @@
    01-PRIMITIVES: AGNOSTIC LAYOUT ALGORITHMS
    ========================================================================== */
 
-/* --- The Container (Max-width constraints) --- */
-.l-container {
-  max-inline-size: 1200px;
-  margin-inline: auto;
-}
-
 /* --- The Cluster (Horizontal wrapping layout) --- */
-.l-cluster {
+l-cluster {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--cluster-gap, var(--space-s));
-  justify-content: var(--cluster-justify, flex-start);
+  gap: var(--space, var(--s1));
+  justify-content: flex-start;
   align-items: var(--cluster-align, center);
 }
 
 /* --- The Stack (Vertical flow layout) --- */
-.l-stack {
+l-stack {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -26,7 +20,7 @@
 }
 
 /* --- The Grid (Auto-fitting cards/services) --- */
-.l-grid {
+l-grid {
   display: grid;
   gap: var(--grid-gap, var(--space-l));
   /* Intrinsic responsive grid: no media queries needed */
@@ -37,14 +31,14 @@
 }
 
 /* --- The Intrinsic Split (Content-driven wrapping) --- */
-.l-split {
+l-split {
   display: flex;
   flex-wrap: wrap;
   gap: var(--split-gap, var(--space-xl));
   align-items: var(--split-align, center);
 }
 
-.l-split > * {
+l-split > * {
   /* flex-grow: 1 (shares space equally)
     flex-shrink: 1 (allows shrinking if needed)
     flex-basis: threshold (forces wrap when space runs out)

@@ -33,6 +33,8 @@
     <link rel="stylesheet" href="assets/css/01-primitives.css" />
     <link rel="stylesheet" href="assets/css/02-atoms.css" />
     <link rel="stylesheet" href="assets/css/03-organisms.css" />
+    <link rel="stylesheet" href="assets/css/04-animations.css" />
+    <link rel="stylesheet" href="assets/css/05-utilities.css" />
 
     <script src="assets/js/core.js" defer></script>
   </head>
@@ -45,140 +47,134 @@
     >
 
     <header class="c-site-header">
-      <nav
-        class="l-container l-cluster c-navbar"
-        aria-label="Primary Navigation"
-      >
-        <a
-          href="index.html"
-          class="brand"
-          aria-label="WG Vehicle Solutions Home"
-        >
-          WG Vehicle Solutions
-        </a>
-
-        <button
-          class="c-navbar__toggle"
-          data-ll-toggle="collapse"
-          aria-controls="primary-nav"
-          aria-expanded="false"
-          aria-label="Toggle navigation menu"
-        >
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            aria-hidden="true"
+      <nav class="c-navbar" aria-label="Primary Navigation">
+        <l-cluster class="u-flex-between">
+          <a
+            href="index.html"
+            class="c-navbar__brand"
+            aria-label="WG Vehicle Solutions Home"
           >
-            <line x1="3" y1="12" x2="21" y2="12"></line>
-            <line x1="3" y1="6" x2="21" y2="6"></line>
-            <line x1="3" y1="18" x2="21" y2="18"></line>
-          </svg>
-        </button>
-
-        <ul id="primary-nav" role="list" class="l-stack c-navbar__menu">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="contact.html" aria-current="page">Contact</a></li>
-        </ul>
+            WG Vehicle Solutions
+          </a>
+          <button
+            class="c-navbar__toggle u-anim-lift"
+            data-ll-toggle="collapse"
+            aria-expanded="false"
+            aria-controls="primary-nav"
+            aria-label="Toggle navigation"
+          >
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+          <div class="c-navbar__menu" id="primary-nav">
+            <l-cluster>
+              <a href="index.html" class="c-navbar__link">Home</a>
+              <a href="services.html" class="c-navbar__link">Services</a>
+              <a href="contact.html" class="c-navbar__link" aria-current="page"
+                >Contact</a
+              >
+            </l-cluster>
+          </div>
+        </l-cluster>
       </nav>
     </header>
 
     <main id="main-content">
-      <section
-        class="contact-section l-container l-stack"
-        aria-labelledby="contact-heading"
-      >
-        <header
-          class="section-header l-stack"
-          style="--stack-gap: var(--space-2xs)"
-        >
-          <h1 id="contact-heading">Contact & Bookings</h1>
-          <p>
-            Call directly for immediate roadside assistance, or send your
-            vehicle details below to request a workshop slot.
-          </p>
+      <section class="contact-section" aria-labelledby="contact-heading">
+        <header class="section-header">
+          <l-stack style="--stack-gap: var(--space-2xs)">
+            <h1 id="contact-heading">Contact & Bookings</h1>
+            <p>
+              Call directly for immediate roadside assistance, or send your
+              vehicle details below to request a workshop slot.
+            </p>
+          </l-stack>
         </header>
 
-        <div class="l-split contact-wrapper">
-          <div class="contact-info l-stack">
+        <l-split class="contact-wrapper">
+          <l-stack class="contact-info">
             <h2>Get in Touch</h2>
 
-            <div
-              class="contact-methods l-stack"
+            <l-stack
+              class="contact-methods"
               style="--stack-gap: var(--space-s)"
             >
               <p>
                 <strong>Emergency Rescue:</strong><br />
                 <a href="tel:+447123456789" class="text-link">07123 456 789</a>
               </p>
-
               <address class="physical-address">
                 <strong>Workshop Address:</strong><br />
                 Unit 4, Mechanic Street<br />
                 Evesham, WR11 4AB
               </address>
-            </div>
+            </l-stack>
 
             <div class="map-container"></div>
-          </div>
+          </l-stack>
 
-          <div class="booking-form-container l-stack">
-            <div class="l-stack" style="--stack-gap: var(--space-2xs)">
+          <l-stack class="booking-form-container">
+            <l-stack style="--stack-gap: var(--space-2xs)">
               <h2>Request a Quote</h2>
               <p>
                 Fill out your details and this form will open a direct WhatsApp
                 chat with Will.
               </p>
-            </div>
+            </l-stack>
 
-            <form
-              id="whatsapp-booking-form"
-              class="booking-form l-stack"
-              style="--stack-gap: var(--space-m)"
-            >
-              <div class="form-group">
-                <label for="customer-name">Full Name</label>
-                <input
-                  type="text"
-                  id="customer-name"
-                  name="customer-name"
-                  required
-                />
-              </div>
-
-              <button type="submit" class="cta-button primary">
-                Message on WhatsApp
-              </button>
+            <form id="whatsapp-booking-form" class="booking-form">
+              <l-stack style="--stack-gap: var(--space-m)">
+                <div class="form-group">
+                  <label for="customer-name">Full Name</label>
+                  <input
+                    type="text"
+                    id="customer-name"
+                    name="customer-name"
+                    required
+                  />
+                </div>
+                <button type="submit" class="cta-button primary">
+                  Message on WhatsApp
+                </button>
+              </l-stack>
             </form>
-          </div>
-        </div>
+          </l-stack>
+        </l-split>
       </section>
     </main>
 
     <footer class="global-footer">
-      <div class="l-container l-grid">
-        <div class="footer-brand-info l-stack">
+      <l-grid>
+        <l-stack class="footer-brand-info">
           <a
             href="index.html"
             class="footer-logo"
             aria-label="WG Vehicle Solutions Home"
+            >WG Vehicle Solutions</a
           >
-            WG Vehicle Solutions
-          </a>
-
           <address class="footer-address">
             123 Mechanic Street<br />
             Workshop Unit 4<br />
             Evesham, WR11 4AB
           </address>
-
-          <ul role="list" class="social-links" aria-label="Social Media">
+          <ul
+            role="list"
+            class="social-links l-cluster"
+            aria-label="Social Media"
+          >
             <li>
               <a
                 href="#"
@@ -228,9 +224,9 @@
               </a>
             </li>
           </ul>
-        </div>
+        </l-stack>
 
-        <div class="footer-hours l-stack">
+        <l-stack class="footer-hours">
           <h2 class="sr-only">Opening Hours</h2>
           <div id="live-status-container" aria-live="polite"></div>
           <table class="hours-table">
@@ -265,9 +261,8 @@
               </tr>
             </tbody>
           </table>
-        </div>
-      </div>
-
+        </l-stack>
+      </l-grid>
       <div class="footer-copyright">
         <p>&copy; 2026 WG Vehicle Solutions. All rights reserved.</p>
       </div>

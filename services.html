@@ -33,6 +33,8 @@
     <link rel="stylesheet" href="assets/css/01-primitives.css" />
     <link rel="stylesheet" href="assets/css/02-atoms.css" />
     <link rel="stylesheet" href="assets/css/03-organisms.css" />
+    <link rel="stylesheet" href="assets/css/04-animations.css" />
+    <link rel="stylesheet" href="assets/css/05-utilities.css" />
 
     <script src="assets/js/core.js" defer></script>
   </head>
@@ -45,73 +47,68 @@
     >
 
     <header class="c-site-header">
-      <nav
-        class="l-container l-cluster c-navbar"
-        aria-label="Primary Navigation"
-      >
-        <a
-          href="index.html"
-          class="brand"
-          aria-label="WG Vehicle Solutions Home"
-        >
-          WG Vehicle Solutions
-        </a>
-
-        <button
-          class="c-navbar__toggle"
-          data-ll-toggle="collapse"
-          aria-controls="primary-nav"
-          aria-expanded="false"
-          aria-label="Toggle navigation menu"
-        >
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            aria-hidden="true"
+      <nav class="c-navbar" aria-label="Primary Navigation">
+        <l-cluster class="u-flex-between">
+          <a
+            href="index.html"
+            class="c-navbar__brand"
+            aria-label="WG Vehicle Solutions Home"
           >
-            <line x1="3" y1="12" x2="21" y2="12"></line>
-            <line x1="3" y1="6" x2="21" y2="6"></line>
-            <line x1="3" y1="18" x2="21" y2="18"></line>
-          </svg>
-        </button>
-
-        <ul id="primary-nav" role="list" class="l-stack c-navbar__menu">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="services.html" aria-current="page">Services</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
+            WG Vehicle Solutions
+          </a>
+          <button
+            class="c-navbar__toggle u-anim-lift"
+            data-ll-toggle="collapse"
+            aria-expanded="false"
+            aria-controls="primary-nav"
+            aria-label="Toggle navigation"
+          >
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+          <div class="c-navbar__menu" id="primary-nav">
+            <l-cluster>
+              <a href="index.html" class="c-navbar__link">Home</a>
+              <a href="services.html" class="c-navbar__link" aria-current="page"
+                >Services</a
+              >
+              <a href="contact.html" class="c-navbar__link">Contact</a>
+            </l-cluster>
+          </div>
+        </l-cluster>
       </nav>
     </header>
 
     <main id="main-content">
-      <section
-        class="category-intro l-container"
-        aria-labelledby="services-heading"
-      >
-        <div class="intro-content l-stack">
+      <section class="category-intro" aria-labelledby="services-heading">
+        <l-stack class="intro-content">
           <h1 id="services-heading">Precision Engineering & Mobile Rescue</h1>
           <p>
             From rapid roadside diagnostics to complex workshop repairs, Will
             provides dealership-level expertise without the corporate overhead.
             Honest pricing, transparent faults, and zero jargon.
           </p>
-        </div>
+        </l-stack>
       </section>
 
-      <section
-        class="service-matrix l-container l-stack"
-        aria-labelledby="matrix-heading"
-      >
+      <section class="service-matrix" aria-labelledby="matrix-heading">
         <h2 id="matrix-heading" class="sr-only">Our Core Capabilities</h2>
 
-        <ul role="list" class="l-grid service-grid">
-          <li class="service-card l-stack">
+        <l-grid role="list" class="service-grid">
+          <l-stack role="listitem" class="service-card">
             <div class="card-icon" aria-hidden="true">
               <svg
                 width="48"
@@ -133,9 +130,9 @@
               Dealer-level OBD2 scanning and fault code analysis to pinpoint
               issues before replacing expensive parts unnecessarily.
             </p>
-          </li>
+          </l-stack>
 
-          <li class="service-card l-stack">
+          <l-stack role="listitem" class="service-card">
             <div class="card-icon" aria-hidden="true">
               <svg
                 width="48"
@@ -159,9 +156,9 @@
               Rapid response for non-starters, dead batteries, and electrical
               faults across Evesham and the surrounding villages.
             </p>
-          </li>
+          </l-stack>
 
-          <li class="service-card l-stack">
+          <l-stack role="listitem" class="service-card">
             <div class="card-icon" aria-hidden="true">
               <svg
                 width="48"
@@ -183,9 +180,9 @@
               Precision pad, disc, and caliper replacements alongside full
               suspension overhauls for a safe, smooth ride.
             </p>
-          </li>
+          </l-stack>
 
-          <li class="service-card l-stack">
+          <l-stack role="listitem" class="service-card">
             <div class="card-icon" aria-hidden="true">
               <svg
                 width="48"
@@ -208,29 +205,30 @@
               From routine oil and filter changes to complex timing belt
               replacements and complete engine rebuilds in Unit 4.
             </p>
-          </li>
-        </ul>
+          </l-stack>
+        </l-grid>
       </section>
     </main>
 
     <footer class="global-footer">
-      <div class="l-container l-grid">
-        <div class="footer-brand-info l-stack">
+      <l-grid>
+        <l-stack class="footer-brand-info">
           <a
             href="index.html"
             class="footer-logo"
             aria-label="WG Vehicle Solutions Home"
+            >WG Vehicle Solutions</a
           >
-            WG Vehicle Solutions
-          </a>
-
           <address class="footer-address">
             123 Mechanic Street<br />
             Workshop Unit 4<br />
             Evesham, WR11 4AB
           </address>
-
-          <ul role="list" class="social-links" aria-label="Social Media">
+          <ul
+            role="list"
+            class="social-links l-cluster"
+            aria-label="Social Media"
+          >
             <li>
               <a
                 href="#"
@@ -280,9 +278,9 @@
               </a>
             </li>
           </ul>
-        </div>
+        </l-stack>
 
-        <div class="footer-hours l-stack">
+        <l-stack class="footer-hours">
           <h2 class="sr-only">Opening Hours</h2>
           <div id="live-status-container" aria-live="polite"></div>
           <table class="hours-table">
@@ -317,9 +315,8 @@
               </tr>
             </tbody>
           </table>
-        </div>
-      </div>
-
+        </l-stack>
+      </l-grid>
       <div class="footer-copyright">
         <p>&copy; 2026 WG Vehicle Solutions. All rights reserved.</p>
       </div>
