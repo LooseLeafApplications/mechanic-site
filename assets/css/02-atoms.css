@@ -17,7 +17,7 @@
 .skip-link:focus {
   position: static;
   display: block;
-  padding: var(--space-s);
+  padding: var(--s0);
   background: var(--color-action-primary);
   color: #fff;
   text-decoration: none;
@@ -28,7 +28,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: var(--space-s) var(--space-m);
+  padding: var(--s0) var(--s1);
   font-weight: 700;
   text-decoration: none;
   border-radius: 4px;
@@ -61,8 +61,8 @@
 .form-group {
   display: flex;
   flex-direction: column;
-  gap: var(--space-3xs);
-  margin-block-end: var(--space-m);
+  gap: var(--s-2);
+  margin-block-end: var(--s1);
 }
 
 .form-group label {
@@ -72,7 +72,7 @@
 
 .form-group input,
 .form-group textarea {
-  padding: var(--space-s);
+  padding: var(--s0);
   border: 1px solid var(--color-border-subtle);
   border-radius: 4px;
   font-family: var(--font-family-ui);

@@ -44,49 +44,51 @@
 
   <body>
     <header class="c-site-header">
-      <nav class="c-navbar" aria-label="Primary Navigation">
-        <l-cluster class="u-flex-between">
-          <a
-            href="index.html"
-            class="c-navbar__brand"
-            aria-label="WG Vehicle Solutions Home"
-          >
-            WG Vehicle Solutions
-          </a>
-          <button
-            class="c-navbar__toggle u-anim-lift"
-            data-ll-toggle="collapse"
-            aria-expanded="false"
-            aria-controls="primary-menu"
-            aria-label="Toggle navigation"
-          >
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              aria-hidden="true"
+      <l-container>
+        <nav class="c-navbar" aria-label="Primary Navigation">
+          <l-cluster class="u-flex-between">
+            <a
+              href="index.html"
+              class="c-navbar__brand"
+              aria-label="WG Vehicle Solutions Home"
             >
-              <line x1="3" y1="12" x2="21" y2="12"></line>
-              <line x1="3" y1="6" x2="21" y2="6"></line>
-              <line x1="3" y1="18" x2="21" y2="18"></line>
-            </svg>
-          </button>
-          <div class="c-navbar__menu" id="primary-nav">
-            <l-cluster>
-              <a href="index.html" class="c-navbar__link" aria-current="page"
-                >Home</a
+              WG Vehicle Solutions
+            </a>
+            <button
+              class="c-navbar__toggle u-anim-lift"
+              data-ll-toggle="collapse"
+              aria-expanded="false"
+              aria-controls="primary-menu"
+              aria-label="Toggle navigation"
+            >
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
               >
-              <a href="services.html" class="c-navbar__link">Services</a>
-              <a href="contact.html" class="c-navbar__link">Contact</a>
-            </l-cluster>
-          </div>
-        </l-cluster>
-      </nav>
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+              </svg>
+            </button>
+            <div class="c-navbar__menu" id="primary-nav">
+              <l-cluster>
+                <a href="index.html" class="c-navbar__link" aria-current="page"
+                  >Home</a
+                >
+                <a href="services.html" class="c-navbar__link">Services</a>
+                <a href="contact.html" class="c-navbar__link">Contact</a>
+              </l-cluster>
+            </div>
+          </l-cluster>
+        </nav>
+      </l-container>
     </header>
 
     <main id="main-content">
@@ -171,7 +173,7 @@
 
       <!-- CUSTOMER REVIEWS -->
       <l-stack class="customer-reviews" aria-labelledby="reviews-heading">
-        <header class="section-header" style="--stack-gap: var(--space-2xs)">
+        <header class="section-header" style="--stack-gap: var(--s-1)">
           <h2 id="reviews-heading">Trusted by Local Motorists</h2>
           <p>Real rescue and repair stories from our community.</p>
         </header>
