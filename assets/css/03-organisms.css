@@ -90,7 +90,7 @@
 .routing-card,
 .service-card {
   background-color: var(--color-surface-sunken);
-  padding: var(--space-l);
+  padding: var(--s2);
   border-radius: 8px;
   border: 1px solid var(--color-border-subtle);
   display: flex;
@@ -99,7 +99,7 @@
 
 .card-icon {
   color: var(--color-action-primary);
-  margin-block-end: var(--space-s);
+  margin-block-end: var(--s0);
 }
 
 .card-link {
@@ -107,16 +107,16 @@
   font-weight: 700;
   display: inline-flex;
   align-items: center;
-  gap: var(--space-2xs);
+  gap: var(--s-1);
 }
 
 /* Global Footer */
 .global-footer {
   background-color: var(--color-surface-alt);
   color: var(--color-surface-sunken);
-  padding-block: var(--space-xl);
-  padding-inline: var(--space-m);
-  margin-top: var(--space-2xl);
+  padding-block: var(--s3);
+  padding-inline: var(--s1);
+  margin-top: var(--s3) * 1.5;
 }
 
 .global-footer h2,
@@ -131,7 +131,7 @@
 
 .hours-table th,
 .hours-table td {
-  padding-block: var(--space-2xs);
+  padding-block: var(--s-1);
   text-align: left;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -139,8 +139,8 @@
 .footer-copyright {
   max-inline-size: 1200px;
   margin-inline: auto;
-  margin-top: var(--space-l);
-  padding-top: var(--space-s);
+  margin-top: var(--s2);
+  padding-top: var(--s0);
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   font-size: 0.875rem;
   text-align: center;
@@ -151,8 +151,8 @@
 .review-marquee-wrapper {
   overflow: hidden;
   width: 100%;
-  padding-block: var(--space-l);
-  /* Pro-tip: A CSS mask creates a subtle fade at the edges of the screen */
+  padding-block: var(--s2);
+  /* A CSS mask creates a subtle fade at the edges of the screen */
   mask-image: linear-gradient(
     to right,
     transparent,
@@ -171,7 +171,7 @@
 
 .review-track {
   display: flex;
-  gap: var(--space-l);
+  gap: var(--s2);
   width: max-content;
   /* Adjust the 30s to make it scroll faster or slower */
   animation: scroll-marquee 30s linear infinite;
@@ -187,7 +187,7 @@
   width: 350px; /* Fixed width prevents shrinking in the flex container */
   flex-shrink: 0;
   background-color: var(--color-surface-sunken);
-  padding: var(--space-l);
+  padding: var(--s2);
   border-radius: 8px;
   border: 1px solid var(--color-border-subtle);
   display: flex;
@@ -197,7 +197,7 @@
 
 .review-card blockquote {
   font-style: italic;
-  margin-block-end: var(--space-m);
+  margin-block-end: var(--s1);
 }
 
 .review-meta {
@@ -205,7 +205,7 @@
   font-size: 0.85rem;
   color: var(--color-action-primary);
   font-weight: 600;
-  margin-top: var(--space-3xs);
+  margin-top: var(--s-2);
 }
 
 /* The Infinite Loop Engine */
@@ -215,7 +215,7 @@
   }
   100% {
     /* Shifts exactly half the total width + half the gap to seamlessly loop */
-    transform: translateX(calc(-50% - (var(--space-l) / 2)));
+    transform: translateX(calc(-50% - (var(--s2) / 2)));
   }
 }
 
@@ -223,10 +223,10 @@
 .operational-status {
   display: inline-flex;
   align-items: center;
-  gap: var(--space-2xs);
+  gap: var(--s-1);
   font-weight: 600;
   font-size: 0.9rem;
-  margin-block-end: var(--space-s);
+  margin-block-end: var(--s0);
 }
 
 .status-dot {
