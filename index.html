@@ -95,7 +95,11 @@
       <l-container>
         <l-stack style="--stack-gap: var(--s3)">
           <!-- HERO SECTION -->
-          <l-split class="hero-section" aria-labelledby="hero-heading">
+          <l-split
+            class="hero-section"
+            aria-labelledby="hero-heading"
+            role="region"
+          >
             <l-stack style="--stack-gap: var(--s2)">
               <h1 id="hero-heading">Expert Mobile Diagnostics & Rescue</h1>
               <p>
@@ -135,7 +139,11 @@
           </l-split>
 
           <!-- SNAPSHOT MATRIX: 3 Routing Cards -->
-          <l-stack class="snapshot-matrix" aria-labelledby="matrix-heading">
+          <l-stack
+            class="snapshot-matrix"
+            aria-labelledby="matrix-heading"
+            role="region"
+          >
             <h2 id="matrix-heading" class="sr-only">Our Services</h2>
 
             <l-grid role="list" class="routing-grid">
@@ -175,7 +183,11 @@
           </l-stack>
 
           <!-- CUSTOMER REVIEWS -->
-          <l-stack class="customer-reviews" aria-labelledby="reviews-heading">
+          <l-stack
+            class="customer-reviews"
+            aria-labelledby="reviews-heading"
+            role="region"
+          >
             <header class="section-header" style="--stack-gap: var(--s-1)">
               <h2 id="reviews-heading">Trusted by Local Motorists</h2>
               <p>Real rescue and repair stories from our community.</p>
@@ -185,8 +197,9 @@
               class="review-marquee-wrapper"
               tabindex="0"
               aria-label="Scrolling customer reviews"
+              role="region"
             >
-              <ul role="list" class="review-track">
+              <ul class="review-track">
                 <li class="review-card">
                   <figure class="review-content">
                     <blockquote>
@@ -294,11 +307,7 @@
               Workshop Unit 4<br />
               Evesham, WR11 4AB
             </address>
-            <ul
-              role="list"
-              class="social-links l-cluster"
-              aria-label="Social Media"
-            >
+            <ul class="social-links l-cluster" aria-label="Social Media">
               <li>
                 <a
                   href="#"
