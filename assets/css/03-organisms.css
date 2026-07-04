@@ -2,29 +2,46 @@
    03-ORGANISMS: NAVBAR, CARDS & FOOTER
    ========================================================================== */
 
-.c-site-header nav a {
-  font-weight: 600;
-  font-size: var(--s-1);
-}
 /* Navigation */
 .c-navbar {
+  /* 1. Define Local Component Tokens (Defaults) */
+  --nav-bg: var(--color-surface-base);
+  --nav-border: var(--color-border-subtle);
+  --nav-text: var(--color-text-base);
+  --nav-link: var(--color-text-muted);
+  --nav-toggle: var(--color-text-base);
+
   --navbar-threshold: 45rem;
   --navbar-padding: var(--s1) var(--s2);
+
+  /* 2. Apply Local Tokens */
   padding: var(--navbar-padding);
-  background-color: var(--color-surface-base);
-  border-bottom: 1px solid var(--color-border-subtle);
+  background-color: var(--nav-bg);
+  border-bottom: 1px solid var(--nav-border);
   position: relative;
   z-index: 50;
 }
+
+/* --- THE INTRINSIC OVERRIDE --- */
+/* When navbar sits inside the hero cover, it automatically inverts its tokens */
+.c-hero-cover .c-navbar {
+  --nav-bg: transparent;
+  --nav-border: transparent;
+  --nav-text: var(--color-surface-base);
+  --nav-link: var(--color-surface-base);
+  --nav-toggle: var(--color-surface-base);
+}
+
 .c-navbar__brand {
   font-weight: 800;
   font-size: var(--s1);
-  color: var(--color-text-base);
+  color: var(--nav-text); /* Uses local token */
   text-decoration: none;
   letter-spacing: -0.02em;
 }
+
 .c-navbar__link {
-  color: var(--color-text-muted);
+  color: var(--nav-link); /* Uses local token */
   text-decoration: none;
   font-weight: 500;
   font-size: var(--s0);
@@ -37,34 +54,98 @@
     color 0.2s ease,
     background-color 0.2s ease;
 }
-.c-navbar__link:hover,
-.c-navbar__link:focus {
-  color: var(--color-text-base);
-  background-color: var(--color-surface-sunken);
+
+/* --- Global Site Header (The Default Component) --- */
+.c-site-header {
+  position: relative;
+  background-image:
+    linear-gradient(rgba(24, 24, 27, 0.85), rgba(24, 24, 27, 0.7)),
+    url("../images/raw/hero-mechanic-fallback.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  /* Default subpage layout */
+  min-height: 45vh;
+  padding-block-end: var(--s3);
+  display: flex;
+  flex-direction: column;
 }
+
+/* --- Modifier for the Homepage --- */
+.c-site-header--large {
+  min-height: 80vh;
+}
+
+/* Centers the text block vertically inside the header */
+.c-site-header > l-container:nth-of-type(2) {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+}
+
+/* Force light text inside the dark header */
+.c-site-header h1,
+.c-site-header p.hero-lead {
+  color: var(--color-surface-base);
+}
+
+/* Constrain the text width */
+.hero-content-wrapper {
+  max-inline-size: 60ch;
+  margin-inline: auto;
+  text-align: center;
+  padding-block-start: var(--s0);
+}
+
+/* Tighten the heading logic */
+.hero-heading {
+  font-size: var(--s3);
+  line-height: 1.1;
+}
+
+/* --- Navigation --- */
+.c-navbar {
+  /* 1. Define Local Component Tokens (Defaults) */
+  --nav-bg: var(--color-surface-base);
+  --nav-border: var(--color-border-subtle);
+  --nav-text: var(--color-text-base);
+  --nav-link: var(--color-text-muted);
+  --nav-toggle: var(--color-text-base);
+
+  --navbar-threshold: 45rem;
+  --navbar-padding: var(--s1) var(--s2);
+
+  padding: var(--navbar-padding);
+  background-color: var(--nav-bg);
+  border-bottom: 1px solid var(--nav-border);
+  position: relative;
+  z-index: 50;
+}
+
+/* THE INTRINSIC OVERRIDE: 
+   Because the navbar now ALWAYS lives inside the dark .c-site-header, 
+   it will safely invert its tokens globally. */
+.c-site-header .c-navbar {
+  --nav-bg: transparent;
+  --nav-border: transparent;
+  --nav-text: var(--color-surface-base);
+  --nav-link: var(--color-surface-base);
+  --nav-toggle: var(--color-surface-base);
+}
+
+.c-site-header .c-navbar__link:hover,
+.c-site-header .c-navbar__link:focus {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
 @media (max-width: 44.99rem) {
-  .c-navbar__menu {
-    display: none;
-    flex-basis: 100%;
-    padding-block-start: var(--s1);
-  }
-  .c-navbar__menu.is-open {
-    display: block;
-    animation: fadeIn var(--dur-fast) var(--spring-smooth);
-  }
-  .c-navbar__menu l-cluster {
-    flex-direction: column;
-    align-items: flex-start;
-  }
+  /* ... keep your existing mobile menu CSS ... */
+
   .c-navbar__toggle {
     display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    background: transparent;
-    border: none;
-    color: var(--color-text-base);
-    cursor: pointer;
-    padding: var(--s-2);
+    /* ... */
+    color: var(--nav-toggle); /* Uses local token */
   }
 }
 @media (min-width: 45rem) {
@@ -144,79 +225,6 @@
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   font-size: 0.875rem;
   text-align: center;
-}
-
-/* --- Review Marquee Organism --- */
-
-.review-marquee-wrapper {
-  overflow: hidden;
-  width: 100%;
-  padding-block: var(--s2);
-  /* A CSS mask creates a subtle fade at the edges of the screen */
-  mask-image: linear-gradient(
-    to right,
-    transparent,
-    black 10%,
-    black 90%,
-    transparent
-  );
-  -webkit-mask-image: linear-gradient(
-    to right,
-    transparent,
-    black 10%,
-    black 90%,
-    transparent
-  );
-}
-
-.review-track {
-  display: flex;
-  gap: var(--s2);
-  width: max-content;
-  /* Adjust the 30s to make it scroll faster or slower */
-  animation: scroll-marquee 30s linear infinite;
-}
-
-/* Accessibility: Stop moving when the user is trying to read */
-.review-marquee-wrapper:hover .review-track,
-.review-marquee-wrapper:focus-within .review-track {
-  animation-play-state: paused;
-}
-
-.review-card {
-  width: 350px; /* Fixed width prevents shrinking in the flex container */
-  flex-shrink: 0;
-  background-color: var(--color-surface-sunken);
-  padding: var(--s2);
-  border-radius: 8px;
-  border: 1px solid var(--color-border-subtle);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.review-card blockquote {
-  font-style: italic;
-  margin-block-end: var(--s1);
-}
-
-.review-meta {
-  display: block;
-  font-size: 0.85rem;
-  color: var(--color-action-primary);
-  font-weight: 600;
-  margin-top: var(--s-2);
-}
-
-/* The Infinite Loop Engine */
-@keyframes scroll-marquee {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    /* Shifts exactly half the total width + half the gap to seamlessly loop */
-    transform: translateX(calc(-50% - (var(--s2) / 2)));
-  }
 }
 
 /* --- Live Operational Status for Opening Times --- */

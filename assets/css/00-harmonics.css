@@ -7,7 +7,7 @@
 :root {
   /* Typography Pairing */
   --font-family-ui: "Inter", system-ui, sans-serif;
-  --font-family-heading: "Merriweather", "Georgia", serif;
+  --font-family-heading: "Inter", system-ui, sans-serif;
 
   /* Semantic Colour Tokens */
   --color-malachite-vibrant: #10b981;
@@ -34,6 +34,10 @@
   --s1: calc(var(--s0) * var(--scale-ratio));
   --s2: calc(var(--s1) * var(--scale-ratio));
   --s3: calc(var(--s2) * var(--scale-ratio));
+  --s4: calc(var(--s3) * var(--scale-ratio));
+  --s5: calc(var(--s4) * var(--scale-ratio));
+  --s6: calc(var(--s5) * var(--scale-ratio));
+  --s7: calc(var(--s6) * var(--scale-ratio));
 
   /* The Contracting Scale */
   --s-1: calc(var(--s0) / var(--scale-ratio));
@@ -68,8 +72,12 @@ h4,
 h5,
 h6 {
   font-family: var(--font-family-heading);
-  line-height: 1.2;
-  margin-block-end: var(--space-s);
+  font-weight: 900; /* Maximum thickness */
+  font-style: italic; /* The "Speed" slant */
+  text-transform: uppercase; /* Aggressive, no-nonsense tone */
+  letter-spacing: -0.03em; /* Pulls the letters tighter together for aggression */
+  line-height: 1.1;
+  margin-block-end: var(--s0);
   color: var(--color-text-base);
 }
 
